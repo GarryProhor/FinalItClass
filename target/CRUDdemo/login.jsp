@@ -11,7 +11,8 @@
     <title>Login</title>
 </head>
   <body>
-  <%@include file="base.jsp"%>
+  <%@include file="navbar.jsp"%>
+  <%@include file="base.jsp"%><br><br><br>
   <div class="row justify-content-center">
     <div class="col-md-6">
       <div class="card">
