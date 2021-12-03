@@ -1,4 +1,6 @@
+<%@ page import="java.sql.Connection" %>
 
+<%@ page import="by.prohor.srvice.ConnectionProvider" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
@@ -11,6 +13,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 </head>
   <body>
+  <% Connection con = ConnectionProvider.getConnection();
+    System.out.println(con);%>
+
   <%@include file="navbar.jsp"%>
   <div class="row justify-content-center">
       <div class="col-md-10">

@@ -19,13 +19,13 @@
         <div class="card-body">
           <h5 class="card-title text-center">Login</h5>
           <p class="card-text">
-          <form>
+          <form method="get" action="login" class="form-group">
 
             <label for="email" class="form-label">Your Email</label>
-            <input type="text" class="form-control" placeholder=" Enter Your Email">
+            <input type="text" name="txtemail" class="form-control" placeholder=" Enter Your Email">
 
             <label for="password"> Enter Your Password :</label>
-            <input type="password" class="form-control" placeholder=" Enter Password">
+            <input type="password" class="form-control" placeholder=" Your Password" name="txtPassword">
 
             <button class="mt-4 btn btn-primary" type="submit">Login</button>
           </form>
