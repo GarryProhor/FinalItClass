@@ -33,11 +33,11 @@ public class UserDAO {
     public User getUserByEmailPass(String email, String password){
         User user = null;
         try{
-            String query = "select * from users where username=? and password=?";
-            PreparedStatement pst = con.prepareStatement(query);
-            pst.setString(1, email);
-            pst.setString(1, password);
-            ResultSet rs = pst.executeQuery();
+            String query = "select * from users where useremail=? and password=?";
+            PreparedStatement ps = this.con.prepareStatement(query);
+            ps.setString(1, email);
+            ps.setString(2, password);
+            ResultSet rs = ps.executeQuery();
 
             if(rs.next()){
                 user = new User();

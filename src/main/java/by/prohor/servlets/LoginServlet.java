@@ -1,8 +1,9 @@
 package by.prohor.servlets;
 
 import by.prohor.dao.UserDAO;
+import by.prohor.entities.Message;
 import by.prohor.entities.User;
-import by.prohor.srvice.ConnectionProvider;
+import by.prohor.connections.ConnectionProvider;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -14,19 +15,29 @@ import java.io.PrintWriter;
 public class LoginServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
+        response.setContentType("text/html");
+        String Email = request.getParameter("Login-email");
+        String Pass = request.getParameter("Login-password");
 
-        String email = request.getParameter("txtemail");
-        String password = request.getParameter("txtPassword");
+//        out.println(email);
+//        out.println(password);
 
-        //out.println(email);
+       UserDAO userDAO = new UserDAO(ConnectionProvider.getConnection());
+       User user = userDAO.getUserByEmailPass(Email, Pass);
 
-        UserDAO userDAO = new UserDAO(ConnectionProvider.getConnection());
-        User user = userDAO.getUserByEmailPass(email, password);
-        if(user!=null){
+        if(user==null){
+            Message message = new Message("Sorry No User found!", "error",
+                    "danger");
+            HttpSession session = request.getSession();
+            session.setAttribute("msg", message);
+            response.sendRedirect("login.jsp");
             out.println("Sorry No User found!");
         }else{
+            HttpSession session = request.getSession();
+            session.setAttribute("currentUser", user);
+        response.sendRedirect("index.jsp");
             out.println("Login Successfully!");
         }
     }

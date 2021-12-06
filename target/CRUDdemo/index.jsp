@@ -1,6 +1,6 @@
 <%@ page import="java.sql.Connection" %>
 
-<%@ page import="by.prohor.srvice.ConnectionProvider" %>
+<%@ page import="by.prohor.connections.ConnectionProvider" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>

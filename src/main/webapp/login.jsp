@@ -1,4 +1,4 @@
-<%--
+<%@ page import="by.prohor.entities.Message" %><%--
   Created by IntelliJ IDEA.
   User: Garry
   Date: 01.12.2021
@@ -18,16 +18,30 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title text-center">Login</h5>
+          <%
+            Message message = (Message) session.getAttribute("msg");
+            if(message!=null){%>
+              <div class="alert alert-<%= message.getCssClass()%>>" role="alert">
+                      <%= message.getContent()%>
+                      </div>
+            <%}
+          %>
+          <%session.removeAttribute("msg");%>
           <p class="card-text">
-          <form method="get" action="login" class="form-group">
+          <form method="post" action="login" class="form-group">
 
-            <label for="email" class="form-label">Your Email</label>
-            <input type="text" name="txtemail" class="form-control" placeholder=" Enter Your Email">
+          <div class="form-group">
+            <label>Email address</label>
+            <input type="email" class="form-control" name="Login-email" placeholder="Enter Your Email" required>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" name="Login-password" placeholder="*********" required>
+          </div><br>
 
-            <label for="password"> Enter Your Password :</label>
-            <input type="password" class="form-control" placeholder=" Your Password" name="txtPassword">
-
-            <button class="mt-4 btn btn-primary" type="submit">Login</button>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">Login</button>
+          </div>
           </form>
           </p>
         </div>

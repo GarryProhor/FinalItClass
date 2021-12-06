@@ -1,11 +1,11 @@
-
+<%@ page import="by.prohor.entities.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
     <title>Navbar</title>
 </head>
   <body>
-
+<% User user = (User) session.getAttribute("currentUser");%>
   <%@include file="base.jsp"%>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
@@ -25,9 +25,18 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Contact</a>
           </li>
+          <% if(user==null){%>
           <li class="nav-item">
             <a class="nav-link" href="login.jsp">Login/Register</a>
           </li>
+          <% }else{%>
+          <li class="nav-item">
+            <a class="nav-link" href="logout.jsp">LogOut</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.jsp"><%=user.getUsername()%></a>
+          </li>
+          <% }%>
         </ul>
       </div>
     </div>

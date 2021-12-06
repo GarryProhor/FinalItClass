@@ -2,7 +2,7 @@ package by.prohor.servlets;
 
 import by.prohor.dao.UserDAO;
 import by.prohor.entities.User;
-import by.prohor.srvice.ConnectionProvider;
+import by.prohor.connections.ConnectionProvider;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

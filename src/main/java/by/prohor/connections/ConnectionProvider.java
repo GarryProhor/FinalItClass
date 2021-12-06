@@ -1,10 +1,10 @@
-package by.prohor.srvice;
+package by.prohor.connections;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class ConnectionProvider {
-    private  static Connection con;
+    private  static Connection con=null;
     public static Connection getConnection(){
         try{
             if(con==null){
