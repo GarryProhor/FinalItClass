@@ -1,10 +1,4 @@
-<%@ page import="by.prohor.entities.Message" %><%--
-  Created by IntelliJ IDEA.
-  User: Garry
-  Date: 01.12.2021
-  Time: 16:57
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="by.prohor.entities.Message" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>

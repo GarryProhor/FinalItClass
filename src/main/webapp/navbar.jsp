@@ -31,6 +31,9 @@
           </li>
           <% }else{%>
           <li class="nav-item">
+            <a class="nav-link" href="addemp.jsp">Add Employee</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="logout.jsp">LogOut</a>
           </li>
           <li class="nav-item">
