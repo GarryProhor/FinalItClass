@@ -28,10 +28,5 @@ public class RegisterServlet extends HttpServlet {
         userDAO.saveUser(user);
         response.sendRedirect("login.jsp");
 
-//        out.println(name);
-//        out.println(email);
-//        out.println(bdate);
-//        out.println(gender);
-//        out.println(password);
     }
 }

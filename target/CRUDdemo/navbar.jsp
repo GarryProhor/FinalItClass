@@ -34,7 +34,7 @@
             <a class="nav-link" href="logout.jsp">LogOut</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="login.jsp"><%=user.getUsername()%></a>
+            <a class="nav-link" href="user.jsp"><%=user.getUsername()%></a>
           </li>
           <% }%>
           <li class="nav-item">
