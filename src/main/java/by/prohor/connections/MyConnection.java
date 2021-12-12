@@ -3,7 +3,7 @@ package by.prohor.connections;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class ConnectionProvider {
+public class MyConnection {
     private  static Connection con=null;
     public static Connection getConnection(){
         try{

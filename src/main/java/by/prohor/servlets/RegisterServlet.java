@@ -2,7 +2,7 @@ package by.prohor.servlets;
 
 import by.prohor.dao.UserDAO;
 import by.prohor.entities.User;
-import by.prohor.connections.ConnectionProvider;
+import by.prohor.connections.MyConnection;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -24,9 +24,9 @@ public class RegisterServlet extends HttpServlet {
         String password = request.getParameter("txtpassword");
 
         User user = new User(name, email, bdate, gender, password);
-        UserDAO userDAO = new UserDAO(ConnectionProvider.getConnection());
+        UserDAO userDAO = new UserDAO(MyConnection.getConnection());
         userDAO.saveUser(user);
-        out.println("Data Inserted Successfully!");
+        response.sendRedirect("login.jsp");
 
 //        out.println(name);
 //        out.println(email);

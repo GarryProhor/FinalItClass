@@ -1,8 +1,9 @@
 package by.prohor.servlets;
 
-import by.prohor.connections.ConnectionProvider;
+import by.prohor.connections.MyConnection;
 import by.prohor.dao.EmployeeDAO;
 import by.prohor.entities.Employees;
+import by.prohor.entities.Message;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -25,8 +26,12 @@ public class AddEmployeeServlet extends HttpServlet {
         String Qualification = request.getParameter("txtquali");
 
         Employees employees = new Employees(Name, Email, gender, Mobile, Address, Qualification);
-        EmployeeDAO employeeDAO = new EmployeeDAO(ConnectionProvider.getConnection());
+        EmployeeDAO employeeDAO = new EmployeeDAO(MyConnection.getConnection());
         employeeDAO.saveEmployee(employees);
-        out.println("Data Saved Successfully!");
+        HttpSession session = request.getSession();
+        Message message = new Message("Data Saved Successfully!", "success", "success");
+        session.setAttribute("msg", message);
+        response.sendRedirect("home.jsp");
+
     }
 }

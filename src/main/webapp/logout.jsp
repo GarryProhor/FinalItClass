@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
   <body>
+  <!--Понял что и так тоже можно, хоть и не самый лучший вариант-->
   <% session.getAttribute("currentUser");
      session.removeAttribute("currentUser");
      Message message = new Message("Logout Successfully!", "success", "success");

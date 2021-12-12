@@ -1,6 +1,9 @@
 <%@ page import="java.sql.Connection" %>
 
-<%@ page import="by.prohor.connections.ConnectionProvider" %>
+<%@ page import="by.prohor.connections.MyConnection" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="by.prohor.entities.Message" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
@@ -13,40 +16,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 </head>
   <body>
-  <% Connection con = ConnectionProvider.getConnection();
-    System.out.println(con);%>
+   <%@include file="navbar.jsp"%>
+   <div class="row justify-content-center">
+       <div class="col-md-4">
+           <h1>Welcome in My Notebook</h1>
 
-  <%@include file="navbar.jsp"%>
-  <div class="row justify-content-center">
-      <div class="col-md-10">
-          <h3>All Employees In Our Company Are Listed here</h3>
-          <table class="table">
-              <thead>
-              <tr>
-                  <th scope="col">Name</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Gender</th>
-                  <th scope="col">Mobile</th>
-                  <th scope="col">Address</th>
-                  <th scope="col">Qualification</th>
-                  <th scope="col">Edit</th>
-                  <th scope="col">Delete</th>
-                  <th scope="col"></th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr>
-                  <td>Mark Otto</td>
-                  <td>mark@gmail.com</td>
-                  <td>male</td>
-                  <td>9090099090</td>
-                  <td>New York</td>
-                  <td>M.A.</td>
-                  <td>Edit</td>
-                  <td>Delete</td>
-              </tr>
-              </tbody>
-          </table>
       </div>
   </div>
   </body>
