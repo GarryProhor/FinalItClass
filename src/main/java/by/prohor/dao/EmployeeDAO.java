@@ -29,4 +29,18 @@ public class EmployeeDAO {
         }
         return flag;
     }
+
+    public boolean deleteEmployee(int emp_id){
+        boolean flag = false;
+        try{
+            String query = "delete from employees where empid=?";
+            PreparedStatement pst = con.prepareStatement(query);
+            pst.setInt(1, emp_id);
+            pst.executeUpdate();
+            flag = true;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return flag;
+    }
 }
