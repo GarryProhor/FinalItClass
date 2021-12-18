@@ -66,7 +66,7 @@
                     <button type="button" class="btn btn-primary">Edit</button>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-primary">Delete</button>
+                   <a href="delete?emp_id=<%=resultSet.getInt("empId")%>">Delete</a>
                 </td>
             </tr>
             <% }%>
