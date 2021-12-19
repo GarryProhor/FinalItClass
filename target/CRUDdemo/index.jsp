@@ -18,10 +18,60 @@
   <body>
    <%@include file="navbar.jsp"%>
    <div class="row justify-content-center">
-       <div class="col-md-4">
+       <div class="col-md-6">
+           <% if(user==null){
+                response.sendRedirect("login.jsp");
+           }else{%>
            <h1>Welcome in My Notebook</h1>
+           <br>
+           <br>
 
+           <div class="row">
+               <div class="col-sm-6">
+                   <div class="card">
+                       <div class="card-body">
+                           <h5 class="card-title">Past events</h5>
+                           <p class="card-text">This section contains events that have <span style="color: red">passed</span>.</p>
+                           <a href="past.jsp" class="btn btn-primary">Click here</a>
+                       </div>
+                   </div>
+               </div>
+
+               <div class="col-sm-6">
+                   <div class="card">
+                       <div class="card-body">
+                           <h5 class="card-title">Real events</h5>
+                           <p class="card-text">This section contains the events that are taking place <span style="color: red">today</span>.</p>
+                           <a href="real.jsp" class="btn btn-primary">Click here</a>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <br>
+           <br>
+           <div class="row">
+               <div class="col-sm-6">
+                   <div class="card">
+                       <div class="card-body">
+                           <h5 class="card-title">Future events</h5>
+                           <p class="card-text">This section contains events that will take place in the <span style="color: red">future</span>.</p>
+                           <a href="future.jsp" class="btn btn-primary">Click here</a>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-sm-6">
+                   <div class="card">
+                       <div class="card-body">
+                           <h5 class="card-title">All events</h5>
+                           <p class="card-text">This section contains <span style="color: red">all</span> events.</p>
+                           <a href="home.jsp" class="btn btn-primary">Click here</a>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <% }%>
       </div>
   </div>
   </body>
+
 </html>

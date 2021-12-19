@@ -7,7 +7,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Home</title>
+    <title>Future Event</title>
     <!--CSS-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- <link href="css/style.css" rel="stylesheet"> -->
@@ -19,10 +19,10 @@
 <%@include file="navbar.jsp"%>
 <div class="row justify-content-center">
     <div class="col-md-10">
-        <h3>All Events Listed here</h3>
+        <h3>Future Events Listed here</h3>
 
         <% Connection con = MyConnection.getConnection();
-            String query = "select * from events";
+            String query = "select * from events where evDate>date_add(curdate(), interval 1 day)";
             Statement statement = con.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
 
@@ -31,8 +31,11 @@
         <div class="alert alert-<%= message.getCssClass()%>>" role="alert">
             <%= message.getContent()%>
         </div>
-        <%}%>
+        <%}
+        %>
+
         <%session.removeAttribute("msg");%>
+
         <table class="table">
             <thead>
             <tr>
@@ -55,6 +58,7 @@
                 </td>
             </tr>
             <% }%>
+
             </tbody>
         </table>
     </div>

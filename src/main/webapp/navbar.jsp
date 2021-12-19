@@ -6,6 +6,7 @@
 </head>
   <body>
 <% User user = (User) session.getAttribute("currentUser");%>
+
   <%@include file="base.jsp"%>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
@@ -24,17 +25,17 @@
           </li>
           <% }else{%>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="home.jsp">Home</a>
+            <a class="nav-link active" aria-current="page" href="index.jsp">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="addemp.jsp">Add Employee</a>
+            <a class="nav-link" href="addev.jsp">New Event</a>
           </li>
 
           <li class="nav-item">
             <a class="nav-link" href="logout.jsp">LogOut</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="user.jsp"><%=user.getUsername()%></a>
+            <a style="color: red" class="nav-link" href="user.jsp"><%=user.getUsername()%></a>
           </li>
           <% }%>
           <li class="nav-item">

@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
         }else{
             HttpSession session = request.getSession();
             session.setAttribute("currentUser", user);
-        response.sendRedirect("home.jsp");
+        response.sendRedirect("index.jsp");
             out.println("Login Successfully!");
         }
     }

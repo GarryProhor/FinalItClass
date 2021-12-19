@@ -20,6 +20,7 @@
                     <div>Your BirthDate : <%= user.getBdate()%></div>
 
                     <div>Gender : <%= user.getGender()%></div><br>
+
                 </p>
             </div>
         </div>
