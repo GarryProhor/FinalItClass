@@ -17,19 +17,19 @@
               <label class="form-label">Enter EventName</label>
               <input type="text" name="txtevName" class="form-control" placeholder=" Enter Your Name">
               <label class="form-label">Enter Event Categories</label>
-              <input type="text" name="txtevCategoryes" class="form-control" placeholder=" Enter Your Email">
+              <input type="text" name="txtevCategoryes" class="form-control" placeholder=" Enter Your Categories">
 
               <label class="form-label">Event Date: </label><br>
                <input type="date" name="txtevDate" class="form-control">
 
               <label class="form-label">Enter Event Morning</label>
-             <input type="text" name="txtevMorning" class="form-control" placeholder=" Enter Your Mobile">
+             <input type="text" name="txtevMorning" class="form-control" placeholder=" Enter Morning Event">
 
              <label class="form-label">Enter Event Day</label>
-              <input type="text" name="txtevDay" class="form-control" placeholder=" Enter Your Address">
+              <input type="text" name="txtevDay" class="form-control" placeholder=" Enter Day Event">
 
               <label class="form-label">Enter Event Evening</label>
-              <input type="text" name="txtevEvening" class="form-control" placeholder=" Enter Your Qualification">
+              <input type="text" name="txtevEvening" class="form-control" placeholder=" Enter Evening Event">
 
                <button class="mt-4 btn btn-primary" type="submit">Save</button>
             </form>

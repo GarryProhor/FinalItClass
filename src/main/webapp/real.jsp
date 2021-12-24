@@ -49,14 +49,14 @@
             <% while(resultSet.next()){%>
             <tr>
                 <td><%= resultSet.getString("evDate")%></td>
-                <td><a href="event.jsp" class="btn btn-primary"><%=resultSet.getString("evName")%></a></td>
+                <td><a href="event.jsp?ev_id=<%=resultSet.getInt("eventId")%>" class="btn btn-primary"><%=resultSet.getString("evName")%></a></td>
+
 
                 <td>
-                    <a href="editev.jsp" class="btn btn-primary">Edit</a>
+                    <a href="editev.jsp?ev_id=<%=resultSet.getInt("eventId")%>" class="btn btn-primary">Edit</a>
                 </td>
                 <td>
                     <a href="delete?ev_id=<%=resultSet.getInt("eventId")%>" class="btn btn-primary">Delete</a>
-
                 </td>
             </tr>
             <% }%>

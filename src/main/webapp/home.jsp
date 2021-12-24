@@ -19,9 +19,9 @@
 <%@include file="navbar.jsp"%>
 <div class="row justify-content-center">
     <div class="col-md-10">
-        <h3>All Employees In Our Company Are Listed here</h3>
+        <h3>All Events In Our Company Are Listed here</h3>
         <% Connection con = MyConnection.getConnection();
-            String query = "select * from employees";
+            String query = "select * from events";
             Statement statement = con.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
 
@@ -32,18 +32,15 @@
         </div>
         <%}
         %>
+
         <%session.removeAttribute("msg");%>
 
         <table class="table">
             <thead>
             <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">Gender</th>
-                <th scope="col">Mobile</th>
-                <th scope="col">Address</th>
-                <th scope="col">Qualification</th>
-                <th scope="col">Show</th>
+                <th scope="col">Date</th>
+                <th scope="col">Event</th>
+
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
             </tr>
@@ -51,22 +48,15 @@
             <tbody>
             <% while(resultSet.next()){%>
             <tr>
-                <td><%= resultSet.getString("empName")%></td>
-                <td><%= resultSet.getString("empEmail")%></td>
-                <td><%= resultSet.getString("Gender")%></td>
-                <td><%= resultSet.getString("empMobile")%></td>
-                <td><%= resultSet.getString("empAddress")%></td>
-                <td><%= resultSet.getString("empQualification")%></td>
+                <td><%= resultSet.getString("evDate")%></td>
+                <td><a href="event.jsp?ev_id=<%=resultSet.getInt("eventId")%>" class="btn btn-primary"><%=resultSet.getString("evName")%></a></td>
+
 
                 <td>
-                    <button type="button" class="btn btn-primary">Show</button>
-                </td>
-
-                <td>
-                    <button type="button" class="btn btn-primary">Edit</button>
+                    <a href="editev.jsp?ev_id=<%=resultSet.getInt("eventId")%>" class="btn btn-primary">Edit</a>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-primary">Delete</button>
+                    <a href="delete?ev_id=<%=resultSet.getInt("eventId")%>" class="btn btn-primary">Delete</a>
                 </td>
             </tr>
             <% }%>

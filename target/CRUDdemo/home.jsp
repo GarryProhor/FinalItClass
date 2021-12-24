@@ -19,8 +19,7 @@
 <%@include file="navbar.jsp"%>
 <div class="row justify-content-center">
     <div class="col-md-10">
-        <h3>All Events Listed here</h3>
-
+        <h3>All Events In Our Company Are Listed here</h3>
         <% Connection con = MyConnection.getConnection();
             String query = "select * from events";
             Statement statement = con.createStatement();
@@ -31,13 +30,17 @@
         <div class="alert alert-<%= message.getCssClass()%>>" role="alert">
             <%= message.getContent()%>
         </div>
-        <%}%>
+        <%}
+        %>
+
         <%session.removeAttribute("msg");%>
+
         <table class="table">
             <thead>
             <tr>
                 <th scope="col">Date</th>
                 <th scope="col">Event</th>
+
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
             </tr>
@@ -46,20 +49,21 @@
             <% while(resultSet.next()){%>
             <tr>
                 <td><%= resultSet.getString("evDate")%></td>
-                <td><a href="event.jsp" class="btn btn-primary"><%=resultSet.getString("evName")%></a></td>
+                <td><a href="event.jsp?ev_id=<%=resultSet.getInt("eventId")%>" class="btn btn-primary"><%=resultSet.getString("evName")%></a></td>
+
+
                 <td>
-                    <a href="editev.jsp" class="btn btn-primary">Edit</a>
+                    <a href="editev.jsp?ev_id=<%=resultSet.getInt("eventId")%>" class="btn btn-primary">Edit</a>
                 </td>
                 <td>
                     <a href="delete?ev_id=<%=resultSet.getInt("eventId")%>" class="btn btn-primary">Delete</a>
                 </td>
             </tr>
             <% }%>
+
             </tbody>
         </table>
     </div>
 </div>
-
 </body>
-
 </html>
